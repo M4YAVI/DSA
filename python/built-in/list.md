@@ -143,36 +143,6 @@ top = stack.pop() # Pop (Returns 2)
 peek = stack[-1]  # Peek/Top
 ```
 
-#### B. Queue (FIFO)
-**Do not** use `list.pop(0)` for Queues. It is **O(N)**.
-Use `collections.deque`.
-```python
-from collections import deque
-queue = deque([1, 2, 3])
-queue.append(4)    # Enqueue
-val = queue.popleft() # Dequeue (O(1))
-```
-
-#### C. Min/Max Heap (Priority Queue)
-Lists don't do this natively efficiently; use `heapq`.
-```python
-import heapq
-arr = [3, 1, 4, 1, 5]
-heapq.heapify(arr) # O(N) linear time to convert list to heap
-min_val = heapq.heappop(arr) # O(log N) - returns 1
-heapq.heappush(arr, 2)       # O(log N)
-# Trick for Max Heap: Multiply numbers by -1, then heapify.
-```
-
-#### D. Binary Search (Keep list sorted)
-Don't write binary search from scratch unless asked. Use `bisect`.
-```python
-import bisect
-arr = [1, 3, 4, 4, 8]
-idx = bisect.bisect_left(arr, 4) # Returns index 2 (first occurrence)
-idx_r = bisect.bisect_right(arr, 4) # Returns index 4 (insertion point after last occurrence)
-```
-
 ---
 
 ### 8. Advanced "Pro" Tricks
